@@ -19,6 +19,10 @@ allprojects {
     repositories {
         google()
         jcenter()
+
+        maven { // maven方式集成阿里推送sdk
+            url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
+        }
     }
 }
 

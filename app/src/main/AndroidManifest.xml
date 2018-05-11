@@ -3,6 +3,7 @@
     package="com.example.sissi.alipush_test">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,6 +17,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.alibaba.app.appkey"
+            android:value="24886462" /> <!-- 用于阿里云推送的本appappKey -->
+        <meta-data
+            android:name="com.alibaba.app.appsecret"
+            android:value="25774c08e68a644339ffb741e481a3c7" /> <!-- 用于阿里云推送的本app的appSecret -->
+
     </application>
 
 </manifest>
