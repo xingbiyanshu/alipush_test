@@ -25,6 +25,21 @@
             android:name="com.alibaba.app.appsecret"
             android:value="25774c08e68a644339ffb741e481a3c7" /> <!-- 用于阿里云推送的本app的appSecret -->
 
+        <!-- 推送监听器  -->
+        <receiver
+            android:name=".PushReceiver"
+            android:exported="false">
+            <intent-filter> 
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
+            </intent-filter>
+            <intent-filter>     
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.sdk.android.push.RECEIVE" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
