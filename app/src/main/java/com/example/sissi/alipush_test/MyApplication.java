@@ -13,6 +13,7 @@ import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
 import com.alibaba.sdk.android.push.register.GcmRegister;
 import com.alibaba.sdk.android.push.register.HuaWeiRegister;
 import com.alibaba.sdk.android.push.register.MiPushRegister;
+import com.sissi.droidw.utils.KLog;
 
 /**
  * Created by Sissi on 2018/5/10.
@@ -40,49 +41,49 @@ public class MyApplication extends Application {
         pushService.register(applicationContext, new CommonCallback() {
             @Override
             public void onSuccess(String response) {
-                PcTrace.tp(PUSH, PcTrace.INFO, "init cloudchannel success: %s", response);
+                KLog.tp(PUSH, KLog.INFO, "init cloudchannel success: %s", response);
 
-                PcTrace.tp(PUSH, PcTrace.INFO, "devId=%s, utDevId=%s", pushService.getDeviceId(), pushService.getUTDeviceId());
+                KLog.tp(PUSH, KLog.INFO, "devId=%s, utDevId=%s", pushService.getDeviceId(), pushService.getUTDeviceId());
 
                 pushService.checkPushChannelStatus(new CommonCallback() {
                     @Override
                     public void onSuccess(String s) {
-                        PcTrace.tp(PUSH, PcTrace.INFO, "checkPushChannelStatus success: %s", s);
+                        KLog.tp(PUSH, KLog.INFO, "checkPushChannelStatus success: %s", s);
                     }
 
                     @Override
                     public void onFailed(String s, String s1) {
-                        PcTrace.tp(PUSH, PcTrace.INFO, "checkPushChannelStatus failed: %s, %s", s, s1);
+                        KLog.tp(PUSH, KLog.INFO, "checkPushChannelStatus failed: %s, %s", s, s1);
                     }
                 });
                 pushService.listAliases(new CommonCallback() {
                     @Override
                     public void onSuccess(String s) {
-                        PcTrace.tp(PUSH, PcTrace.INFO, "listAliases success: %s", s);
+                        KLog.tp(PUSH, KLog.INFO, "listAliases success: %s", s);
                     }
 
                     @Override
                     public void onFailed(String s, String s1) {
-                        PcTrace.tp(PUSH, PcTrace.INFO, "listAliases failed: %s, %s", s, s1);
+                        KLog.tp(PUSH, KLog.INFO, "listAliases failed: %s, %s", s, s1);
                     }
                 });
 
                 pushService.listTags(CloudPushService.DEVICE_TARGET, new CommonCallback() {
                     @Override
                     public void onSuccess(String s) {
-                        PcTrace.tp(PUSH, PcTrace.INFO, "listTags success: %s", s);
+                        KLog.tp(PUSH, KLog.INFO, "listTags success: %s", s);
                     }
 
                     @Override
                     public void onFailed(String s, String s1) {
-                        PcTrace.tp(PUSH, PcTrace.INFO, "listTags failed: %s, %s", s, s1);
+                        KLog.tp(PUSH, KLog.INFO, "listTags failed: %s, %s", s, s1);
                     }
                 });
             }
 
             @Override
             public void onFailed(String errorCode, String errorMessage) {
-                PcTrace.tp(PUSH, PcTrace.INFO, "init cloudchannel failed: errorCode=%s, errorMessage=%s", errorCode, errorMessage);
+                KLog.tp(PUSH, KLog.INFO, "init cloudchannel failed: errorCode=%s, errorMessage=%s", errorCode, errorMessage);
             }
         });
 
