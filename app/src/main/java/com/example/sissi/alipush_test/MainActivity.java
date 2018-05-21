@@ -12,6 +12,8 @@ import com.sissi.droidw.settings.Checker;
 import com.sissi.droidw.settings.Guider;
 import com.sissi.droidw.utils.KLog;
 
+import com.sissi.droidw.utils.KLog;
+
 public class MainActivity extends Activity {
 
     @Override

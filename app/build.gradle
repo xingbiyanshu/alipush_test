@@ -46,5 +46,5 @@ dependencies {
 
     implementation 'com.android.support:support-v4:26.1.0'
 
-//    implementation project(":app-release")
+    implementation 'com.sissi.droidw:droidw:1.0.0'
 }

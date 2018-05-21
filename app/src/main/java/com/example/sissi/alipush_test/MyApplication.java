@@ -23,7 +23,6 @@ import com.alibaba.sdk.android.push.register.GcmRegister;
 import com.alibaba.sdk.android.push.register.HuaWeiRegister;
 import com.alibaba.sdk.android.push.register.MiPushRegister;
 import com.sissi.droidw.utils.KLog;
-
 import java.io.File;
 
 /**
