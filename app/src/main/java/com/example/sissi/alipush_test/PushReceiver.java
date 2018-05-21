@@ -8,6 +8,7 @@ import android.content.Context;
 
 import com.alibaba.sdk.android.push.MessageReceiver;
 import com.alibaba.sdk.android.push.notification.CPushMessage;
+import com.sissi.droidw.utils.KLog;
 
 import java.util.Map;
 
@@ -27,12 +28,12 @@ public class PushReceiver extends MessageReceiver {
         // TODO 处理推送通知
         if ( null != extraMap ) {
             for (Map.Entry<String, String> entry : extraMap.entrySet()) {
-                PcTrace.p("@Get diy param : Key=" + entry.getKey() + " , Value=" + entry.getValue());
+                KLog.p("@Get diy param : Key=" + entry.getKey() + " , Value=" + entry.getValue());
             }
         } else {
-            PcTrace.p("@收到通知 && 自定义消息为空");
+            KLog.p("@收到通知 && 自定义消息为空");
         }
-        PcTrace.p("onNotify{title:%s, body:%s}", title, summary);
+        KLog.p("onNotify{title:%s, body:%s}", title, summary);
     }
 
     /**
@@ -47,7 +48,7 @@ public class PushReceiver extends MessageReceiver {
      */
     @Override
     protected void onNotificationReceivedInApp(Context context, String title, String summary, Map<String, String> extraMap, int openType, String openActivity, String openUrl) {
-        PcTrace.p("onNotificationReceivedInApp ： " + " : " + title + " : " + summary + "  " + extraMap + " : " + openType + " : " + openActivity + " : " + openUrl);
+        KLog.p("onNotificationReceivedInApp ： " + " : " + title + " : " + summary + "  " + extraMap + " : " + openType + " : " + openActivity + " : " + openUrl);
     }
 
     /**
@@ -57,7 +58,7 @@ public class PushReceiver extends MessageReceiver {
      */
     @Override
     public void onMessage(Context context, CPushMessage cPushMessage) {
-        PcTrace.p("onMessage{title:%s, body:%s}", cPushMessage.getTitle(), cPushMessage.getContent());
+        KLog.p("onMessage{title:%s, body:%s}", cPushMessage.getTitle(), cPushMessage.getContent());
     }
 
     /**
@@ -70,7 +71,7 @@ public class PushReceiver extends MessageReceiver {
     //这个只针对阿里推送的通知，如果是收到消息后自定义通知则不会走该回调
     @Override
     public void onNotificationOpened(Context context, String title, String summary, String extraMap) {
-        PcTrace.p("onNotifyOpened{title:%s, body:%s, extraMap=%s}", title, summary, extraMap);
+        KLog.p("onNotifyOpened{title:%s, body:%s, extraMap=%s}", title, summary, extraMap);
     }
 
     /**
@@ -81,7 +82,7 @@ public class PushReceiver extends MessageReceiver {
     //这个只针对阿里推送的通知，如果是收到消息后自定义通知则不会走该回调
     @Override
     public void onNotificationRemoved(Context context, String messageId) {
-        PcTrace.p( "onNotificationRemoved ： " + messageId);
+        KLog.p( "onNotificationRemoved ： " + messageId);
     }
 
     /**
@@ -94,6 +95,6 @@ public class PushReceiver extends MessageReceiver {
     //这个只针对阿里推送的通知，如果是收到消息后自定义通知则不会走该回调
     @Override
     protected void onNotificationClickedWithNoAction(Context context, String title, String summary, String extraMap) {
-        PcTrace.p("onNotificationClickedWithNoAction ： " + " : " + title + " : " + summary + " : " + extraMap);
+        KLog.p("onNotificationClickedWithNoAction ： " + " : " + title + " : " + summary + " : " + extraMap);
     }
 }
