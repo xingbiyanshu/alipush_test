@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">alipush_test</string>
+    <string name="title_activity_b">BActivity</string>
 </resources>

@@ -2,10 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sissi.alipush_test">
 
-    <uses-permission
-        android:name="android.permission.INTERNET" />
-    <uses-permission
-        android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:name=".MyApplication"
@@ -15,7 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,14 +28,17 @@
             android:name="com.alibaba.app.appsecret"
             android:value="25774c08e68a644339ffb741e481a3c7" /> <!-- 用于阿里云推送的本app的appSecret -->
 
-        <!-- 推送监听器  -->
+
+        <!-- 推送监听器 -->
         <receiver
             android:name=".PushReceiver"
             android:exported="false">
-            <intent-filter> 
+            <intent-filter>
+                 
                 <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
             </intent-filter>
-            <intent-filter>     
+            <intent-filter>
+                     
                 <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
             </intent-filter>
             <intent-filter>
@@ -46,6 +46,9 @@
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".BActivity"
+            android:label="@string/title_activity_b"></activity>
     </application>
 
 </manifest>

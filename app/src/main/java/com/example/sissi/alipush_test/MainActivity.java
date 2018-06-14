@@ -7,6 +7,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.View;
 
 import com.sissi.droidw.settings.Checker;
 import com.sissi.droidw.settings.Guider;
@@ -22,14 +23,14 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         printPermissions(this);
 
-        if (!Checker.isAppNotificationEnabled(this)){
-            Intent intent = Guider.guide2AppNotification(this);
-            startActivity(intent);
-        }
-        if (!Checker.isAppAutoLaunchEnabled(this)){
-            Intent intent = Guider.guide2AppAutoLaunch(this);
-            startActivity(intent);  // TODO 一次性完成所有设置再回到应用
-        }
+//        if (!Checker.isAppNotificationEnabled(this)){
+//            Intent intent = Guider.guide2AppNotification(this);
+//            startActivity(intent);
+//        }
+//        if (!Checker.isAppAutoLaunchEnabled(this)){
+//            Intent intent = Guider.guide2AppAutoLaunch(this);
+//            startActivity(intent);  // TODO 一次性完成所有设置再回到应用
+//        }
     }
 
     private void printPermissions(Context context){
@@ -113,5 +114,10 @@ public class MainActivity extends Activity {
 //            intent = new Intent(Settings.ACTION_SETTINGS);
 //            context.startActivity(intent);
 //        }
+    }
+
+    public void onLoginSuccess(View view) {
+        Intent intent = new Intent(this, BActivity.class);
+        startActivity(intent);
     }
 }

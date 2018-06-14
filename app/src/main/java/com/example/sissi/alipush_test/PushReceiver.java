@@ -5,6 +5,7 @@
 package com.example.sissi.alipush_test;
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.alibaba.sdk.android.push.MessageReceiver;
 import com.alibaba.sdk.android.push.notification.CPushMessage;
@@ -96,5 +97,9 @@ public class PushReceiver extends MessageReceiver {
     @Override
     protected void onNotificationClickedWithNoAction(Context context, String title, String summary, String extraMap) {
         KLog.p("onNotificationClickedWithNoAction ： " + " : " + title + " : " + summary + " : " + extraMap);
+
+        Intent intent = new Intent(context, BActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // 由于BroadcastReceiver中获取到的Context不是ActivityContenxt而是ApplicationContext，所以无法直接打开activity，而需要将对应intent设置为Intent.FLAG_ACTIVITY_NEW_TASK才行。参考：https://help.aliyun.com/knowledge_detail/57437.html?spm=a2c4g.11186631.2.6.rZWfTt
+        context.startActivity(intent);
     }
 }

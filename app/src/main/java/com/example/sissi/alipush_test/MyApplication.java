@@ -41,9 +41,10 @@ public class MyApplication extends Application {
         KLog.p("===============count=%s",count);
         printStartingInfo();
 
-        if (!getPackageName().equals(getCurrentProcessName())){
-            return; // 非主进程（推送进程）不需要走后续逻辑
-        }
+//        if (!getPackageName().equals(getCurrentProcessName())){
+//            KLog.p("%s is not main process", getCurrentProcessName());
+//            return; // 非主进程（推送进程）不需要走后续逻辑
+//        }
 
         initCloudChannel(this);
 
@@ -217,19 +218,19 @@ public class MyApplication extends Application {
         KLog.p("newConfig=%s", newConfig);
     }
 
-    private AppOpsManager.OnOpChangedListener onOpChangedListener = new AppOpsManager.OnOpChangedListener() {
-        @TargetApi(Build.VERSION_CODES.KITKAT)
-        @Override
-        public void onOpChanged(String op, String packageName) { // 设置项有变化时触发该回调
-            KLog.p("op=%s", op);
-            int uid = Process.myUid();
-            KLog.p("uid=%s", uid);
-            int mode = appOpsManager.noteOpNoThrow(op, uid, getPackageName()); // 判断设置项是否开启
-            KLog.p("mode=%s", mode);
-
-//            appOpsManager.stopWatchingMode(onOpChangedListener);
-        }
-    };
+//    private AppOpsManager.OnOpChangedListener onOpChangedListener = new AppOpsManager.OnOpChangedListener() {
+//        @TargetApi(Build.VERSION_CODES.KITKAT)
+//        @Override
+//        public void onOpChanged(String op, String packageName) { // 设置项有变化时触发该回调
+//            KLog.p("op=%s", op);
+//            int uid = Process.myUid();
+//            KLog.p("uid=%s", uid);
+//            int mode = appOpsManager.noteOpNoThrow(op, uid, getPackageName()); // 判断设置项是否开启
+//            KLog.p("mode=%s", mode);
+//
+////            appOpsManager.stopWatchingMode(onOpChangedListener);
+//        }
+//    };
 
     /*
  * 判断通知权限是否打开
